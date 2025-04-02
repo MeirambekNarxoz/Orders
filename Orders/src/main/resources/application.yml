@@ -1,0 +1,21 @@
+server:
+  port: 1111
+spring:
+  application:
+    name: "Orders"
+  cloud:
+    feign:
+      hystrix:
+        enabled: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: myuser
+    password: pass
+    url: jdbc:postgresql://localhost:5432/postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
