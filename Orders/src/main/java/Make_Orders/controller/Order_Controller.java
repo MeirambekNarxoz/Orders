@@ -4,21 +4,26 @@ import Make_Orders.entity.Order;
 import Make_Orders.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
+@RestController
 @RequiredArgsConstructor
-@RequestMapping(name = "/order")
+@RequestMapping("/order") // Путь для всех запросов
 public class Order_Controller {
     private final OrderService service;
 
-    @GetMapping()
-    public List<Order> getAll() {
+    // Получить все заказы
+    @GetMapping("")  // Путь для всех заказов
+    public List<Order> getAllOrders() {
         return service.getAllOrders();
     }
-    @GetMapping("/id")
+
+    // Получить заказ по ID
+    @GetMapping("/{id}")
     public Order getOrderById(@PathVariable Long id) {
         return service.getOrderById(id);
     }

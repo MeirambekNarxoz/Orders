@@ -5,8 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.lang.reflect.Type;
+import Make_Orders.client.UserDTO;  // Import UserDTO from the Make_Orders.client package
 
 @Entity
 @Getter
@@ -22,6 +21,8 @@ public class Order {
     private String address;
     private String begin_date;
     private String end_date;
-    private String created_at;
-//    private String Type;
+    @Column(name = "user_id")
+    private Long userId;
+    @Transient
+    private UserDTO user;
 }
